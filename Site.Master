@@ -1,0 +1,155 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="dla.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+
+    <style>
+        .speech {
+            border: 1px solid #DDD;
+            width: 300px;
+            padding: 0;
+            margin: 0
+        }
+
+            .speech input {
+                border: 0;
+                width: 240px;
+                display: inline-block;
+                height: 30px;
+            }
+
+            .speech img {
+                float: right;
+                width: 40px
+            }
+
+        .auto-style1 {
+            width: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <%--        <div class="container">
+            <div class="row">
+
+
+
+
+            </div>
+        </div>--%>
+
+        <%--        <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary navbar-transparent">
+            <div class="container">
+                <a href="./" class="navbar-brand">
+                    <img class="d-inline-block mx-2" src="_assets/img/logo.svg" alt="" width="30" height="28">
+                    Bootswatch
+                </a>
+                <button class="auto-style1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="themes">
+                                <a class="dropdown-item" href="./default/">Default</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="./cerulean/">Cerulean</a>
+                                <a class="dropdown-item" href="./cosmo/">Cosmo</a>
+                                <a class="dropdown-item" href="./cyborg/">Cyborg</a>
+                                <a class="dropdown-item" href="./darkly/">Darkly</a>
+                                <a class="dropdown-item" href="./flatly/">Flatly</a>
+                                <a class="dropdown-item" href="./journal/">Journal</a>
+                                <a class="dropdown-item" href="./litera/">Litera</a>
+                                <a class="dropdown-item" href="./lumen/">Lumen</a>
+                                <a class="dropdown-item" href="./lux/">Lux</a>
+                                <a class="dropdown-item" href="./materia/">Materia</a>
+                                <a class="dropdown-item" href="./minty/">Minty</a>
+                                <a class="dropdown-item" href="./morph/">Morph</a>
+                                <a class="dropdown-item" href="./pulse/">Pulse</a>
+                                <a class="dropdown-item" href="./quartz/">Quartz</a>
+                                <a class="dropdown-item" href="./sandstone/">Sandstone</a>
+                                <a class="dropdown-item" href="./simplex/">Simplex</a>
+                                <a class="dropdown-item" href="./sketchy/">Sketchy</a>
+                                <a class="dropdown-item" href="./slate/">Slate</a>
+                                <a class="dropdown-item" href="./solar/">Solar</a>
+                                <a class="dropdown-item" href="./spacelab/">Spacelab</a>
+                                <a class="dropdown-item" href="./superhero/">Superhero</a>
+                                <a class="dropdown-item" href="./united/">United</a>
+                                <a class="dropdown-item" href="./vapor/">Vapor</a>
+                                <a class="dropdown-item" href="./yeti/">Yeti</a>
+                                <a class="dropdown-item" href="./zephyr/">Zephyr</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./help/">Help</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://blog.bootswatch.com/">Blog</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a target="_blank" rel="noopener" class="nav-link" href="https://github.com/thomaspark/bootswatch/"><i class="fa fa-github"></i>GitHub</a>
+                        </li>
+                        <li class="nav-item">
+                            <a target="_blank" rel="noopener" class="nav-link" href="https://twitter.com/bootswatch"><i class="fa fa-twitter"></i>Twitter</a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+        --%>
+
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - GUTS INNOVATION</p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>
